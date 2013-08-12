@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -31,19 +31,118 @@
 	</head>
 
 	<body>
-
 		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-markdown="pages/1.md" data-separator="^\n\n\n" data-vertical="^\n\n">
-				</section>
 				<section>
+					<section data-markdown="pages/1.md" data-separator="^\n\n\n" data-vertical="^\n\n"></section>
 					<section>
-						<h3>slide 2</h3>
+						<h3>环境</h3>
+						<ul style="width:600px;">
+							<li>Mac</li>
+<pre><code class="bash" contenteditable># Bash
+$ gem install sass
+$ gem install compass
+</code></pre>							
+							<li>正常PC <br>
+							<small>安装 <a href="http://rubyinstaller.org" target="_blank">Ruby</a></small><br>
+<pre><code class="bash" contenteditable># CMD
+$ gem install sass
+$ gem install compass
+</code></pre>							</li>
+							<li>异常PC
+<pre><code class="bash" contenteditable># CMD
+# 从rubygems.org下载相应的gems
+# (rake,rspec,diff-lcs,fssm)等
+$ gem install ./sass
+$ gem install ./$gems
+$ gem install ./compass
+</code></pre>
+							</li>
+						</ul>
 					</section>
 					<section>
-						<h3>slide 3</h3>
+						<h3>附加</h3>
+						<ul style="width:600px;">
+							<li>检查是否安装成功
+<pre><code class="bash"># Bash
+$ sass -v
+$ Sass 3.2.10 (Media Mark)
+$ compass -v
+$ Compass 0.12.2 (Alnilam)
+</code></pre>
+							</li>
+
+							<li>更换ruby的安装源
+<pre><code class="bash"># Bash
+$ gem sources --remove https://rubygems.org/
+$ gem sources -a http://ruby.taobao.org/
+$ gem sources -l
+*** CURRENT SOURCES ***
+
+http://ruby.taobao.org
+# 请确保只有 ruby.taobao.org
+$ gem install rails</code></pre>
+							</li>
+							<li>环境变量$PATH</li>
+						</ul>
+					</section>
+					<section>
+						<h3>试用</h3>
+						<ul style="width:600px;">
+							<li>sass试用
+<pre><code class="bash"># Bash
+$ sass input.scss output.css
+</code></pre>
+							</li>
+							<li>compass试用
+<pre><code class="bash"># Bash
+$ mkdir compass-test
+$ cd compass-test
+$ compass init
+$ compass watch
+</code></pre>							
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>基础命令</h3>
+						<ul style="width:700px;">
+							<li>sass
+								<ul>
+									<li>watch/complie
+<pre><code class="bash"># Bash
+$ sass --watch input.scss:output.css
+$ sass --watch app/sass:public/stylesheets
+</code></pre>
+									</li>
+									<li>sass-convert
+<pre><code class="bash">sass-convert input.css output.scss -T scss</code></pre>
+									</li>
+								</ul>	
+							</li>
+							<li>compass
+							<ul>
+								<li>create
+<pre><code class="bash"># Bash demo
+$ compass create path/to/project
+</code></pre>								
+								</li>
+								<li>init
+<pre><code class="bash">$ cd path/to/project
+$ compass init
+</code></pre>
+								</li>
+								<li></li>
+							</ul></li>
+						</ul>
+					</section>
+					<section>
+						<h3>在线工具</h3>
+						<ul style="width:600px;">
+							<li><a href="http://css2sass.heroku.com">http://css2sass.heroku.com</a></li>
+							<li><a href="http://codepen.io">http://codepen.io</a></li>
+							<li></li>
+						</ul>
 					</section>
 				</section>
 			</div>
@@ -64,7 +163,7 @@
 				center: true,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
